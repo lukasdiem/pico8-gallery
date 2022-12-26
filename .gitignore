@@ -10,13 +10,15 @@ __pycache__
 conf.ini
 
 # Need to generate the carts instead of possibly storing outdated versions
-dist/carts/*/*.js
-dist/carts/*/*.html
+#dist/carts/*/*.js
+#dist/carts/*/*.html
 # Generated
-pico8_plate.html
-dist/index.html
-dist/tags/*
-dist/static/js/*
-dist/static/css/*
-dist/static/fnts/*
-dist/static/img/*
+#pico8_plate.html
+#dist/index.html
+#dist/tags/*
+#dist/static/js/*
+#dist/static/css/*
+#dist/static/fnts/*
+#dist/static/img/*
+
+dist/node_modules/*

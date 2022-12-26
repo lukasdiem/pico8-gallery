@@ -6,6 +6,7 @@ def update_export():
     carts = load_carts(path.join(config["Path"]["cart_dir"], 'carts.json'))
     cart_dir = config["Path"]["cart_dir"]
 
+    pico_exe = config["Pico8"]["pico_exe"]
     appdata = config["Pico8"]["pico_appdata"]
     plate_path = path.join(appdata, "plates", "pico8_plate.html")
     print(f"{appdata}")
@@ -14,7 +15,8 @@ def update_export():
         cart_html = cart["folder"] + ".html"
         cart_path = cart["folder"] + ".p8.png"
         cart_cwd = path.join(cart_dir, cart["folder"])
-        args = ["pico8", "-export", f"{cart_html} -p pico8_plate", cart_path]
+        #args = ["pico8", "-export", f"{cart_html} -p pico8_plate", cart_path]
+        args = [pico_exe, "-export", f"{cart_html} -p pico8_plate", cart_path]
         command = ' '.join(args)
         print(f"{command}")
         subprocess.run(args, cwd=cart_cwd)
