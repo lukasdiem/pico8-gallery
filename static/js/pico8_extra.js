@@ -448,7 +448,6 @@ function p8_update_layout()
     else
         p8_playarea.style.marginTop = "";
 
-    console.log("SIZE: " + csize);
     canvas.style.width = csize + 'px';
     canvas.style.height = csize + 'px';
 
@@ -458,8 +457,6 @@ function p8_update_layout()
 
     p8_container.style.width = csize + 'px';
     p8_container.style.height = csize + 'px';
-
-    console.log("Dummy");
 
     // set menu buttons position to bottom right
     el = document.getElementById("p8_menu_buttons");

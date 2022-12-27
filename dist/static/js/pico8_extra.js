@@ -480,18 +480,18 @@ function p8_update_layout()
         if (r > 40) r = 40;
 
         el = document.getElementById("controls_right_panel");
-        el.style.left = w-r*6;
-        el.style.top = h-r*7;
-        el.style.width = r*6;
-        el.style.height = r*7;
+        el.style.left = w-r*6 + 'px';
+        el.style.top = h-r*7 + 'px';
+        el.style.width = r*6 + 'px';
+        el.style.height = r*7 + 'px';
         if (el.getAttribute("src") != p8_gfx_dat["controls_right_panel"]) // optimisation: avoid reload? (browser should handle though)
             el.setAttribute("src", p8_gfx_dat["controls_right_panel"]);
 
         el = document.getElementById("controls_left_panel");
-        el.style.left = 0;
-        el.style.top = h-r*6;
-        el.style.width = r*6;
-        el.style.height = r*6;
+        el.style.left = 0 + 'px';
+        el.style.top = h-r*6 + 'px';
+        el.style.width = r*6 + 'px';
+        el.style.height = r*6 + 'px';
         if (el.getAttribute("src") != p8_gfx_dat["controls_left_panel"]) // optimisation: avoid reload? (browser should handle though)
             el.setAttribute("src", p8_gfx_dat["controls_left_panel"]);
         
