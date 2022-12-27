@@ -2,7 +2,7 @@
 {% import 'cart.j2' as cart -%}
 
 {% block style %}
-<link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="{{base_url}}/static/css/index.css">
 {% endblock %}
 
 {% block main_content %}
@@ -14,7 +14,7 @@
     <h2 id="showing">Showing all carts.</h2>
     {% endif %}
     <div id="cart_list">{% for cart_entry in carts %}
-        {{cart.cart_entry(cart_entry.name, cart_entry.page_url, cart_entry.image_url, cart_entry.description, cart_entry.tags, tag)|indent -}}
+        {{cart.cart_entry(base_url, cart_entry.name, cart_entry.page_url, cart_entry.image_url, cart_entry.description, cart_entry.tags, tag)|indent -}}
     {% endfor %}
     </div>
     {% if links|length > 0 %}
@@ -23,12 +23,12 @@
         <h2>Links</h2>
         <ul>
         {% for link_title, link_url in links %}
-            <li><a href="{{link_url}}">{{link_title}}</a></li>
+            <li><a href="{{base_url}}/{{link_url}}">{{link_title}}</a></li>
         {% endfor %}
         </ul>
     </nav>
     {% endif %}
 {% endblock main_content %}
 {% block post_body %}
-    <script src="/static/js/tags.js"></script>
+    <script src="{{base_url}}/static/js/tags.js"></script>
 {% endblock %}

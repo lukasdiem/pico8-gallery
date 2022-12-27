@@ -22,3 +22,4 @@ conf.ini
 #dist/static/img/*
 
 dist/node_modules/*
+/*.code-workspace
