@@ -577,7 +577,7 @@ function p8_close_cart()
 var p8_is_running = false;
 var p8_script = null;
 var Module = null;
-function p8_run_cart()
+function p8_run_cart(cart_js)
 {
     if (p8_is_running) return;
     p8_is_running = true;
@@ -585,12 +585,25 @@ function p8_run_cart()
     // touch: hide everything except p8_frame_0
     if (p8_touch_detected)
     {
+        // Hacky way to work on mobile with custom layout!
+        // remove stuff
+        document.getElementById("site-header").remove();
+        document.getElementById("site-footer").remove();
+        // remove main
+        var element = document.getElementsByTagName("main"), index;
+
+        for (index = element.length - 1; index >= 0; index--) {
+            element[index].parentNode.removeChild(element[index]);
+        }
+
         el = document.getElementById("body_0");
         el2 = document.getElementById("p8_frame_0");
         if (el && el2)
         {
             el.style.display="none";
-            el.parentNode.appendChild(el2);
+            //el.parentNode.appendChild(el2);
+            console.log("Insert before!");
+            el.parentNode.insertBefore(el2, el.nextSibling);
         }
     }
 
@@ -627,11 +640,11 @@ function p8_run_cart()
 
     }
     e.type = "application/javascript";
-    e.src = "snake.js";
+    e.src = cart_js;
     e.id = "e_script";
     
     document.body.appendChild(e); // load and run
-
+    
     // hide start button and show canvas / menu buttons. hide start button
     el = document.getElementById("p8_start_button");
     if (el) el.style.display="none";
