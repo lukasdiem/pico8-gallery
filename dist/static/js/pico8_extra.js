@@ -460,7 +460,9 @@ function p8_update_layout()
 
     // set menu buttons position to bottom right
     el = document.getElementById("p8_menu_buttons");
-    el.style.marginTop = csize - el.offsetHeight + 'px';
+    var t = csize - el.offsetHeight
+    t = t < 0 ? 0 : t;
+    el.style.marginTop = t + 'px';
 
     if (p8_touch_detected && p8_is_running)
     {
@@ -598,12 +600,13 @@ function p8_run_cart(cart_js)
 
         el = document.getElementById("body_0");
         el2 = document.getElementById("p8_frame_0");
+        el2.style.marginTop = '10px';
         if (el && el2)
         {
             el.style.display="none";
-            //el.parentNode.appendChild(el2);
-            console.log("Insert before!");
-            el.parentNode.insertBefore(el2, el.nextSibling);
+            el.parentNode.appendChild(el2);
+            //console.log("Insert before!");
+            //el.parentNode.insertBefore(el2, el.nextSibling);
         }
     }
 
